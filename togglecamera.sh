@@ -11,8 +11,8 @@ else
         #enable webcam 
         if kdesu -c "modprobe uvcvideo"
         then
-	notify-send -a Camera -u normal 'WebCam Enabled' 'The WebCam was been enabled.'
+		notify-send -a Camera -u normal 'WebCam Enabled' 'The WebCam was been enabled.'
 	else
-	notify-send -a Camera -u normal 'Error Enabling' 'The WebCam was not been enabled.'
+		notify-send -a Camera -u normal 'Error Enabling' 'The WebCam was not been enabled.'
 	fi
 fi
