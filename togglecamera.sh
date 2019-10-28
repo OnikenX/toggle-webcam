@@ -1,10 +1,18 @@
 if lsmod | grep uvcvideo
 then
         #disable webcam
-        kdesu -c "rmmod -f uvcvideo"
-        notify-send -a Camera -u normal  'WebCam Disabled' 'The WebCam was been disabled.' 
+        if kdesu -c "rmmod -f uvcvideo"
+	then        
+		notify-send -a Camera -u normal  'WebCam Disabled' 'The WebCam was been disabled.' 
+	else
+		notify-send -a Camera -u normal 'Error Disabling' 'The WebCam was not been disabled'
+	fi
 else
         #enable webcam 
-        kdesu -c "modprobe uvcvideo"
-        notify-send -a Camera -u normal 'WebCam Enabled' 'The WebCam was been enabled.'
+        if kdesu -c "modprobe uvcvideo"
+        then
+	notify-send -a Camera -u normal 'WebCam Enabled' 'The WebCam was been enabled.'
+	else
+	notify-send -a Camera -u normal 'Error Enabling' 'The WebCam was not been enabled.'
+	fi
 fi
