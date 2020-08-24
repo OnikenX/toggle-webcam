@@ -1,7 +1,9 @@
+#!/bin/bash
+
 if lsmod | grep uvcvideo
 then
         #disable webcam
-        if kdesu -c "rmmod -f uvcvideo"
+        if sudo /usr/bin/disablecamera.sh
 	then        
 		notify-send -a Camera -u normal  'WebCam Disabled' 'The WebCam was been disabled.' 
 	else
